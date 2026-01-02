@@ -1,20 +1,77 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Cars
+      Buy Used Cars
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Cars</ion-title>
+      <ion-title size="large">Buy Used Cars</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Cars Page</strong>
-    <p>This is a placeholder for the Cars listing page.</p>
+  <!-- Cars Grid -->
+  <ion-grid *ngIf="cars.length > 0">
+    <ion-row>
+      <ion-col 
+        size="12" 
+        sizeSm="6" 
+        sizeMd="4" 
+        sizeLg="3"
+        *ngFor="let car of cars"
+        data-testid="car-card-col">
+        <ion-card 
+          class="car-card" 
+          (click)="navigateToDetail(car.id)"
+          [attr.data-testid]="'car-card-' + car.id"
+          button="true">
+          
+          <!-- Car Image -->
+          <div class="car-image-container">
+            <ion-img 
+              [src]="car.image" 
+              [alt]="car.brand + ' ' + car.model"
+              class="car-image">
+            </ion-img>
+            <ion-badge class="fuel-badge" color="primary">{{ car.fuel }}</ion-badge>
+          </div>
+
+          <!-- Car Details -->
+          <ion-card-header>
+            <ion-card-title class="car-title">
+              {{ car.brand }} {{ car.model }}
+            </ion-card-title>
+            <ion-card-subtitle class="car-year">{{ car.year }}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <div class="car-info">
+              <div class="info-item">
+                <span class="info-label">Mileage:</span>
+                <span class="info-value">{{ formatKm(car.km) }}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Location:</span>
+                <span class="info-value">{{ car.city }}</span>
+              </div>
+            </div>
+            <div class="price-container">
+              <span class="price">{{ formatPrice(car.price) }}</span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="cars.length === 0">
+    <ion-text color="medium">
+      <h2>No Cars Available</h2>
+      <p>There are currently no approved cars for sale. Check back later!</p>
+    </ion-text>
   </div>
 </ion-content>

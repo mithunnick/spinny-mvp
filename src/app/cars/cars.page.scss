@@ -1,20 +1,125 @@
-#container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
+.car-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
   margin: 0;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.car-image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: var(--ion-color-light);
+
+  .car-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fuel-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    text-transform: uppercase;
+  }
+}
+
+ion-card-header {
+  padding-bottom: 0.5rem;
+}
+
+.car-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ion-color-dark);
+  margin-bottom: 0.25rem;
+}
+
+.car-year {
+  font-size: 0.9rem;
+  color: var(--ion-color-medium);
+}
+
+ion-card-content {
+  padding-top: 0.5rem;
+}
+
+.car-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+
+    .info-label {
+      color: var(--ion-color-medium);
+      font-weight: 500;
+    }
+
+    .info-value {
+      color: var(--ion-color-dark);
+      font-weight: 600;
+    }
+  }
+}
+
+.price-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--ion-color-light);
+
+  .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ion-color-primary);
+  }
+}
+
+// Empty State
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 2rem;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 576px) {
+  .car-image-container {
+    height: 180px;
+  }
+
+  .car-title {
+    font-size: 1rem;
+  }
+
+  .price {
+    font-size: 1.3rem;
+  }
 }
