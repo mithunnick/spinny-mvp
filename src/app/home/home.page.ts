@@ -32,7 +32,9 @@ import { carOutline, searchOutline } from 'ionicons/icons';
   ],
 })
 export class HomePage {
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    addIcons({ carOutline, searchOutline });
+  }
 
   navigateToSell() {
     this.router.navigate(['/sell']);
