@@ -1,0 +1,7 @@
+{
+  "name": "spinny-mvp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
