@@ -1,20 +1,152 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Sell
+      Sell Your Car
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Sell</ion-title>
+      <ion-title size="large">Sell Your Car</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Sell Page</strong>
-    <p>This is a placeholder for the Sell page.</p>
-  </div>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" sizeMd="8" sizeLg="6">
+        <div class="form-container">
+          <p class="form-description">
+            Fill in the details below to list your car for sale. Your listing will be reviewed before going live.
+          </p>
+
+          <form [formGroup]="sellCarForm" (ngSubmit)="onSubmit()">
+            <!-- Brand -->
+            <ion-item>
+              <ion-label position="stacked">Brand *</ion-label>
+              <ion-select 
+                formControlName="brand" 
+                placeholder="Select brand"
+                data-testid="brand-select">
+                <ion-select-option *ngFor="let brand of brands" [value]="brand">
+                  {{ brand }}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-text color="danger" *ngIf="submitted && f['brand'].errors?.['required']">
+              <p class="error-text">Brand is required</p>
+            </ion-text>
+
+            <!-- Model -->
+            <ion-item>
+              <ion-label position="stacked">Model *</ion-label>
+              <ion-input 
+                formControlName="model" 
+                type="text" 
+                placeholder="Enter model name"
+                data-testid="model-input">
+              </ion-input>
+            </ion-item>
+            <ion-text color="danger" *ngIf="submitted && f['model'].errors?.['required']">
+              <p class="error-text">Model is required</p>
+            </ion-text>
+
+            <!-- Year -->
+            <ion-item>
+              <ion-label position="stacked">Year *</ion-label>
+              <ion-input 
+                formControlName="year" 
+                type="number" 
+                placeholder="Enter manufacturing year"
+                data-testid="year-input">
+              </ion-input>
+            </ion-item>
+            <ion-text color="danger" *ngIf="submitted && f['year'].errors">
+              <p class="error-text" *ngIf="f['year'].errors?.['required']">Year is required</p>
+              <p class="error-text" *ngIf="f['year'].errors?.['min'] || f['year'].errors?.['max']">Enter a valid year</p>
+            </ion-text>
+
+            <!-- Fuel Type -->
+            <ion-item>
+              <ion-label position="stacked">Fuel Type *</ion-label>
+              <ion-select 
+                formControlName="fuel" 
+                placeholder="Select fuel type"
+                data-testid="fuel-select">
+                <ion-select-option *ngFor="let fuel of fuelTypes" [value]="fuel">
+                  {{ fuel }}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-text color="danger" *ngIf="submitted && f['fuel'].errors?.['required']">
+              <p class="error-text">Fuel type is required</p>
+            </ion-text>
+
+            <!-- KM Driven -->
+            <ion-item>
+              <ion-label position="stacked">KM Driven *</ion-label>
+              <ion-input 
+                formControlName="km" 
+                type="number" 
+                placeholder="Enter kilometers driven"
+                data-testid="km-input">
+              </ion-input>
+            </ion-item>
+            <ion-text color="danger" *ngIf="submitted && f['km'].errors">
+              <p class="error-text" *ngIf="f['km'].errors?.['required']">KM driven is required</p>
+              <p class="error-text" *ngIf="f['km'].errors?.['min']">KM must be 0 or greater</p>
+            </ion-text>
+
+            <!-- Expected Price -->
+            <ion-item>
+              <ion-label position="stacked">Expected Price ($) *</ion-label>
+              <ion-input 
+                formControlName="price" 
+                type="number" 
+                placeholder="Enter expected price"
+                data-testid="price-input">
+              </ion-input>
+            </ion-item>
+            <ion-text color="danger" *ngIf="submitted && f['price'].errors">
+              <p class="error-text" *ngIf="f['price'].errors?.['required']">Price is required</p>
+              <p class="error-text" *ngIf="f['price'].errors?.['min']">Price must be greater than 0</p>
+            </ion-text>
+
+            <!-- City -->
+            <ion-item>
+              <ion-label position="stacked">City *</ion-label>
+              <ion-input 
+                formControlName="city" 
+                type="text" 
+                placeholder="Enter your city"
+                data-testid="city-input">
+              </ion-input>
+            </ion-item>
+            <ion-text color="danger" *ngIf="submitted && f['city'].errors?.['required']">
+              <p class="error-text">City is required</p>
+            </ion-text>
+
+            <!-- Buttons -->
+            <div class="button-group">
+              <ion-button 
+                type="submit" 
+                expand="block" 
+                data-testid="submit-button">
+                Submit for Review
+              </ion-button>
+              <ion-button 
+                type="button" 
+                expand="block" 
+                fill="outline" 
+                (click)="onReset()"
+                data-testid="reset-button">
+                Reset Form
+              </ion-button>
+            </div>
+          </form>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
