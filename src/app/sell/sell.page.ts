@@ -116,6 +116,11 @@ export class SellPage implements OnInit {
 
     const formData = this.sellCarForm.value;
 
+    // Use first uploaded image or placeholder
+    const imageToUse = this.selectedImages.length > 0 
+      ? this.selectedImages[0] 
+      : '/assets/images/car-placeholder.jpg';
+
     // Add car to service with Pending status
     this.carService.addCar({
       brand: formData.brand,
@@ -125,7 +130,7 @@ export class SellPage implements OnInit {
       km: parseInt(formData.km),
       price: parseFloat(formData.price),
       city: formData.city,
-      image: '/assets/images/car-placeholder.jpg',
+      image: imageToUse,
       status: 'Pending'
     });
 
@@ -136,5 +141,37 @@ export class SellPage implements OnInit {
   onReset() {
     this.submitted = false;
     this.sellCarForm.reset();
+    this.selectedImages = [];
+  }
+
+  // Handle file selection
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files) {
+      const files = Array.from(input.files);
+      
+      files.forEach(file => {
+        if (file.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.onload = (e: ProgressEvent<FileReader>) => {
+            if (e.target?.result) {
+              this.selectedImages.push(e.target.result as string);
+            }
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+  }
+
+  // Remove image from preview
+  removeImage(index: number) {
+    this.selectedImages.splice(index, 1);
+  }
+
+  // Trigger file input click
+  triggerFileInput() {
+    const fileInput = document.getElementById('file-input') as HTMLInputElement;
+    fileInput?.click();
   }
 }
