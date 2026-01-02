@@ -15,8 +15,14 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonText
+  IonText,
+  IonImg,
+  IonCard,
+  IonCardContent,
+  IonIcon
 } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { closeCircle, cloudUploadOutline } from 'ionicons/icons';
 import { CarService } from '../services/car.service';
 import { CommonModule } from '@angular/common';
 
