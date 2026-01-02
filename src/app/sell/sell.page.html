@@ -127,6 +127,52 @@
               <p class="error-text">City is required</p>
             </ion-text>
 
+            <!-- Image Upload Section -->
+            <ion-card class="image-upload-card">
+              <ion-card-content>
+                <h3 class="upload-title">Car Images</h3>
+                <p class="upload-description">Upload photos of your car (optional, multiple allowed)</p>
+                
+                <!-- Hidden file input -->
+                <input 
+                  type="file" 
+                  id="file-input"
+                  accept="image/*" 
+                  multiple 
+                  (change)="onFileSelected($event)"
+                  style="display: none;"
+                  data-testid="file-input">
+                
+                <!-- Upload button -->
+                <ion-button 
+                  expand="block" 
+                  fill="outline" 
+                  (click)="triggerFileInput()"
+                  data-testid="upload-button">
+                  <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+                  Choose Images
+                </ion-button>
+
+                <!-- Image Previews -->
+                <div class="image-preview-grid" *ngIf="selectedImages.length > 0">
+                  <div class="image-preview-item" *ngFor="let image of selectedImages; let i = index">
+                    <ion-img [src]="image" class="preview-image"></ion-img>
+                    <ion-button 
+                      class="remove-button" 
+                      fill="clear" 
+                      (click)="removeImage(i)"
+                      data-testid="remove-image-button">
+                      <ion-icon name="close-circle" color="danger"></ion-icon>
+                    </ion-button>
+                  </div>
+                </div>
+
+                <p class="images-count" *ngIf="selectedImages.length > 0">
+                  {{ selectedImages.length }} image(s) selected
+                </p>
+              </ion-card-content>
+            </ion-card>
+
             <!-- Buttons -->
             <div class="button-group">
               <ion-button 
