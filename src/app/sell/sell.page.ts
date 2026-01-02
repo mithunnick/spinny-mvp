@@ -87,7 +87,9 @@ export class SellPage implements OnInit {
     private formBuilder: FormBuilder,
     private carService: CarService,
     private router: Router
-  ) {}
+  ) {
+    addIcons({ closeCircle, cloudUploadOutline });
+  }
 
   ngOnInit() {
     this.sellCarForm = this.formBuilder.group({
