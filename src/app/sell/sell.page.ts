@@ -57,6 +57,7 @@ import { CommonModule } from '@angular/common';
 export class SellPage implements OnInit {
   sellCarForm!: FormGroup;
   submitted = false;
+  selectedImages: string[] = []; // Store base64 data URLs
 
   brands = [
     'Toyota',
