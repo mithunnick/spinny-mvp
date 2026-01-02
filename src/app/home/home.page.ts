@@ -27,7 +27,8 @@ import { carOutline, searchOutline } from 'ionicons/icons';
     IonButton,
     IonGrid,
     IonRow,
-    IonCol
+    IonCol,
+    IonIcon
   ],
 })
 export class HomePage {
