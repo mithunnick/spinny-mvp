@@ -8,8 +8,11 @@ import {
   IonButton,
   IonGrid,
   IonRow,
-  IonCol
+  IonCol,
+  IonIcon
 } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { carOutline, searchOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
