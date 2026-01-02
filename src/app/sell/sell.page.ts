@@ -47,7 +47,11 @@ import { CommonModule } from '@angular/common';
     IonGrid,
     IonRow,
     IonCol,
-    IonText
+    IonText,
+    IonImg,
+    IonCard,
+    IonCardContent,
+    IonIcon
   ],
 })
 export class SellPage implements OnInit {
