@@ -17,13 +17,13 @@
     <ion-row class="ion-justify-content-center">
       <ion-col size="12" sizeMd="8" sizeLg="6">
         <div class="form-container">
-          <p class="form-description">
+          <p class="form-description ion-text-center ion-padding-bottom">
             Fill in the details below to list your car for sale. Your listing will be reviewed before going live.
           </p>
 
           <form [formGroup]="sellCarForm" (ngSubmit)="onSubmit()">
             <!-- Brand -->
-            <ion-item>
+            <ion-item class="ion-margin-bottom">
               <ion-label position="stacked">Brand *</ion-label>
               <ion-select 
                 formControlName="brand" 
@@ -35,11 +35,11 @@
               </ion-select>
             </ion-item>
             <ion-text color="danger" *ngIf="submitted && f['brand'].errors?.['required']">
-              <p class="error-text">Brand is required</p>
+              <p class="error-text ion-padding-start">Brand is required</p>
             </ion-text>
 
             <!-- Model -->
-            <ion-item>
+            <ion-item class="ion-margin-bottom">
               <ion-label position="stacked">Model *</ion-label>
               <ion-input 
                 formControlName="model" 
