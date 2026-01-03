@@ -10,10 +10,10 @@
   <ion-grid class="home-grid">
     <ion-row class="ion-justify-content-center ion-align-items-center">
       <ion-col size="12" sizeMd="8" sizeLg="6">
-        <div class="home-content">
-          <div class="title-section">
-            <h1>Welcome to Car Marketplace</h1>
-            <p class="subtitle">Buy or sell used cars with ease</p>
+        <div class="home-content ion-text-center">
+          <div class="title-section ion-margin-bottom">
+            <h1 class="ion-no-margin">Welcome to Car Marketplace</h1>
+            <p class="subtitle ion-no-margin ion-margin-top">Buy or sell used cars with ease</p>
           </div>
 
           <div class="buttons-section">
@@ -21,7 +21,8 @@
               expand="block" 
               size="large" 
               (click)="navigateToSell()"
-              data-testid="sell-car-button">
+              data-testid="sell-car-button"
+              class="ion-margin-bottom">
               <ion-icon slot="start" name="car-outline"></ion-icon>
               Sell Your Car
             </ion-button>
