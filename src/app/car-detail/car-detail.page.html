@@ -1,21 +1,114 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Car Detail
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/cars" data-testid="back-button"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Car Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Car Detail</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Car Found -->
+  <div *ngIf="car" class="car-detail-container">
+    <!-- Car Image Gallery -->
+    <div class="image-section">
+      <ion-img 
+        [src]="car.image" 
+        [alt]="car.brand + ' ' + car.model"
+        class="car-detail-image">
+      </ion-img>
+    </div>
 
-  <div id="container">
-    <strong>Car Detail Page</strong>
-    <p>This is a placeholder for the Car Detail page.</p>
-    <p *ngIf="carId">Car ID: {{ carId }}</p>
+    <!-- Car Header Info -->
+    <div class="header-section ion-padding">
+      <div class="title-status">
+        <h1 class="car-main-title">{{ car.brand }} {{ car.model }}</h1>
+        <ion-badge [color]="getStatusColor(car.status)" data-testid="status-badge">
+          <ion-icon name="checkmark-circle" *ngIf="car.status === 'Approved'"></ion-icon>
+          <ion-icon name="time-outline" *ngIf="car.status === 'Pending'"></ion-icon>
+          {{ car.status }}
+        </ion-badge>
+      </div>
+      <div class="price-section">
+        <span class="price-label">Price</span>
+        <span class="price-value" data-testid="car-price">{{ formatPrice(car.price) }}</span>
+      </div>
+    </div>
+
+    <!-- Car Details Card -->
+    <ion-card class="details-card">
+      <ion-card-header>
+        <ion-card-title>Vehicle Information</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="none">
+          <!-- Year -->
+          <ion-item>
+            <ion-icon name="calendar-outline" slot="start" color="primary"></ion-icon>
+            <ion-label>
+              <h3>Year</h3>
+              <p class="detail-value">{{ car.year }}</p>
+            </ion-label>
+          </ion-item>
+
+          <!-- Fuel Type -->
+          <ion-item>
+            <ion-icon name="flame-outline" slot="start" color="primary"></ion-icon>
+            <ion-label>
+              <h3>Fuel Type</h3>
+              <p class="detail-value">{{ car.fuel }}</p>
+            </ion-label>
+          </ion-item>
+
+          <!-- Mileage -->
+          <ion-item>
+            <ion-icon name="speedometer-outline" slot="start" color="primary"></ion-icon>
+            <ion-label>
+              <h3>Mileage</h3>
+              <p class="detail-value">{{ formatKm(car.km) }}</p>
+            </ion-label>
+          </ion-item>
+
+          <!-- Location -->
+          <ion-item>
+            <ion-icon name="location-outline" slot="start" color="primary"></ion-icon>
+            <ion-label>
+              <h3>Location</h3>
+              <p class="detail-value">{{ car.city }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Action Buttons -->
+    <div class="action-section ion-padding">
+      <ion-button 
+        expand="block" 
+        size="large"
+        data-testid="contact-seller-button">
+        <ion-icon name="cash-outline" slot="start"></ion-icon>
+        Contact Seller
+      </ion-button>
+      <ion-button 
+        expand="block" 
+        fill="outline"
+        size="large"
+        (click)="goBack()"
+        data-testid="back-to-list-button">
+        Back to Listings
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Car Not Found -->
+  <div *ngIf="!car" class="not-found-section ion-padding">
+    <ion-text color="medium">
+      <h2>Car Not Found</h2>
+      <p>The car you're looking for doesn't exist or has been removed.</p>
+    </ion-text>
+    <ion-button expand="block" (click)="goBack()">
+      Back to Listings
+    </ion-button>
   </div>
 </ion-content>
