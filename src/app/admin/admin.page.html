@@ -14,24 +14,24 @@
   </ion-header>
 
   <!-- Statistics Section -->
-  <div class="stats-section">
-    <div class="stat-card pending">
-      <div class="stat-number">{{ pendingCount }}</div>
-      <div class="stat-label">Pending</div>
+  <div class="stats-section ion-margin-bottom">
+    <div class="stat-card pending ion-padding">
+      <div class="stat-number ion-no-margin">{{ pendingCount }}</div>
+      <div class="stat-label ion-no-margin">Pending</div>
     </div>
-    <div class="stat-card approved">
-      <div class="stat-number">{{ approvedCount }}</div>
-      <div class="stat-label">Approved</div>
+    <div class="stat-card approved ion-padding">
+      <div class="stat-number ion-no-margin">{{ approvedCount }}</div>
+      <div class="stat-label ion-no-margin">Approved</div>
     </div>
-    <div class="stat-card rejected">
-      <div class="stat-number">{{ rejectedCount }}</div>
-      <div class="stat-label">Rejected</div>
+    <div class="stat-card rejected ion-padding">
+      <div class="stat-number ion-no-margin">{{ rejectedCount }}</div>
+      <div class="stat-label ion-no-margin">Rejected</div>
     </div>
   </div>
 
   <!-- All Cars Section -->
-  <div class="section-title">
-    <h2>All Submitted Cars</h2>
+  <div class="section-title ion-margin-vertical">
+    <h2 class="ion-no-margin">All Submitted Cars</h2>
   </div>
 
   <div *ngIf="allCars.length > 0" class="cars-container">
