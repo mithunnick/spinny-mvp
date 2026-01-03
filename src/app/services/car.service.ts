@@ -156,7 +156,7 @@ export class CarService {
   }
 
   // Update car status
-  updateCarStatus(id: string, status: 'Pending' | 'Approved'): boolean {
+  updateCarStatus(id: string, status: 'Pending' | 'Approved' | 'Rejected'): boolean {
     const car = this.cars.find(c => c.id === id);
     if (car) {
       car.status = status;
