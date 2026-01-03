@@ -49,11 +49,11 @@
               </ion-input>
             </ion-item>
             <ion-text color="danger" *ngIf="submitted && f['model'].errors?.['required']">
-              <p class="error-text">Model is required</p>
+              <p class="error-text ion-padding-start">Model is required</p>
             </ion-text>
 
             <!-- Year -->
-            <ion-item>
+            <ion-item class="ion-margin-bottom">
               <ion-label position="stacked">Year *</ion-label>
               <ion-input 
                 formControlName="year" 
@@ -63,12 +63,12 @@
               </ion-input>
             </ion-item>
             <ion-text color="danger" *ngIf="submitted && f['year'].errors">
-              <p class="error-text" *ngIf="f['year'].errors?.['required']">Year is required</p>
-              <p class="error-text" *ngIf="f['year'].errors?.['min'] || f['year'].errors?.['max']">Enter a valid year</p>
+              <p class="error-text ion-padding-start" *ngIf="f['year'].errors?.['required']">Year is required</p>
+              <p class="error-text ion-padding-start" *ngIf="f['year'].errors?.['min'] || f['year'].errors?.['max']">Enter a valid year</p>
             </ion-text>
 
             <!-- Fuel Type -->
-            <ion-item>
+            <ion-item class="ion-margin-bottom">
               <ion-label position="stacked">Fuel Type *</ion-label>
               <ion-select 
                 formControlName="fuel" 
@@ -80,11 +80,11 @@
               </ion-select>
             </ion-item>
             <ion-text color="danger" *ngIf="submitted && f['fuel'].errors?.['required']">
-              <p class="error-text">Fuel type is required</p>
+              <p class="error-text ion-padding-start">Fuel type is required</p>
             </ion-text>
 
             <!-- KM Driven -->
-            <ion-item>
+            <ion-item class="ion-margin-bottom">
               <ion-label position="stacked">KM Driven *</ion-label>
               <ion-input 
                 formControlName="km" 
@@ -94,12 +94,12 @@
               </ion-input>
             </ion-item>
             <ion-text color="danger" *ngIf="submitted && f['km'].errors">
-              <p class="error-text" *ngIf="f['km'].errors?.['required']">KM driven is required</p>
-              <p class="error-text" *ngIf="f['km'].errors?.['min']">KM must be 0 or greater</p>
+              <p class="error-text ion-padding-start" *ngIf="f['km'].errors?.['required']">KM driven is required</p>
+              <p class="error-text ion-padding-start" *ngIf="f['km'].errors?.['min']">KM must be 0 or greater</p>
             </ion-text>
 
             <!-- Expected Price -->
-            <ion-item>
+            <ion-item class="ion-margin-bottom">
               <ion-label position="stacked">Expected Price ($) *</ion-label>
               <ion-input 
                 formControlName="price" 
@@ -109,12 +109,12 @@
               </ion-input>
             </ion-item>
             <ion-text color="danger" *ngIf="submitted && f['price'].errors">
-              <p class="error-text" *ngIf="f['price'].errors?.['required']">Price is required</p>
-              <p class="error-text" *ngIf="f['price'].errors?.['min']">Price must be greater than 0</p>
+              <p class="error-text ion-padding-start" *ngIf="f['price'].errors?.['required']">Price is required</p>
+              <p class="error-text ion-padding-start" *ngIf="f['price'].errors?.['min']">Price must be greater than 0</p>
             </ion-text>
 
             <!-- City -->
-            <ion-item>
+            <ion-item class="ion-margin-bottom">
               <ion-label position="stacked">City *</ion-label>
               <ion-input 
                 formControlName="city" 
@@ -124,7 +124,7 @@
               </ion-input>
             </ion-item>
             <ion-text color="danger" *ngIf="submitted && f['city'].errors?.['required']">
-              <p class="error-text">City is required</p>
+              <p class="error-text ion-padding-start">City is required</p>
             </ion-text>
 
             <!-- Image Upload Section -->
