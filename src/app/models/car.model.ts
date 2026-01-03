@@ -8,5 +8,5 @@ export interface Car {
   price: number;
   city: string;
   image: string;
-  status: 'Pending' | 'Approved';
+  status: 'Pending' | 'Approved' | 'Rejected';
 }
