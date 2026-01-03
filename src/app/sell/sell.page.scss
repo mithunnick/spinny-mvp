@@ -40,13 +40,15 @@ ion-select {
 }
 
 .button-group {
-  margin-top: 2rem;
+  margin-top: var(--ion-margin, 16px) * 2;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--ion-margin, 16px);
 
   ion-button {
     --border-radius: 8px;
+    --padding-top: 14px;
+    --padding-bottom: 14px;
     font-weight: 600;
     text-transform: none;
     margin: 0;
@@ -55,33 +57,35 @@ ion-select {
 
 // Image Upload Styles
 .image-upload-card {
-  margin: 1.5rem 0;
+  margin: var(--ion-margin, 16px) * 1.5 0;
   box-shadow: none;
   border: 2px dashed var(--ion-color-light-shade);
 
   ion-card-content {
-    padding: 1rem;
+    padding: var(--ion-padding, 16px);
   }
 }
 
 .upload-title {
   font-size: 1.1rem;
   font-weight: 600;
-  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+  margin: 0 0 var(--ion-margin, 16px) / 2 0;
   color: var(--ion-color-dark);
 }
 
 .upload-description {
   font-size: 0.9rem;
+  line-height: 1.5;
   color: var(--ion-color-medium);
-  margin: 0 0 1rem 0;
+  margin: 0 0 var(--ion-margin, 16px) 0;
 }
 
 .image-preview-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: var(--ion-margin, 16px);
+  margin-top: var(--ion-margin, 16px);
 }
 
 .image-preview-item {
@@ -116,8 +120,9 @@ ion-select {
 .images-count {
   text-align: center;
   font-size: 0.9rem;
+  line-height: 1.4;
   color: var(--ion-color-primary);
-  margin: 1rem 0 0 0;
+  margin: var(--ion-margin, 16px) 0 0 0;
   font-weight: 500;
 }
 
