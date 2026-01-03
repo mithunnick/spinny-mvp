@@ -21,60 +21,60 @@
 
     <!-- Car Header Info -->
     <div class="header-section ion-padding">
-      <div class="title-status">
-        <h1 class="car-main-title">{{ car.brand }} {{ car.model }}</h1>
+      <div class="title-status ion-margin-bottom">
+        <h1 class="car-main-title ion-no-margin">{{ car.brand }} {{ car.model }}</h1>
         <ion-badge [color]="getStatusColor(car.status)" data-testid="status-badge">
           <ion-icon name="checkmark-circle" *ngIf="car.status === 'Approved'"></ion-icon>
           <ion-icon name="time-outline" *ngIf="car.status === 'Pending'"></ion-icon>
           {{ car.status }}
         </ion-badge>
       </div>
-      <div class="price-section">
+      <div class="price-section ion-text-center">
         <span class="price-label">Price</span>
         <span class="price-value" data-testid="car-price">{{ formatPrice(car.price) }}</span>
       </div>
     </div>
 
     <!-- Car Details Card -->
-    <ion-card class="details-card">
+    <ion-card class="details-card ion-margin">
       <ion-card-header>
-        <ion-card-title>Vehicle Information</ion-card-title>
+        <ion-card-title class="ion-no-margin">Vehicle Information</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-list lines="none">
+        <ion-list lines="none" class="ion-no-padding">
           <!-- Year -->
-          <ion-item>
+          <ion-item class="ion-no-padding ion-margin-bottom">
             <ion-icon name="calendar-outline" slot="start" color="primary"></ion-icon>
             <ion-label>
-              <h3>Year</h3>
-              <p class="detail-value">{{ car.year }}</p>
+              <h3 class="ion-no-margin">Year</h3>
+              <p class="detail-value ion-no-margin ion-margin-top">{{ car.year }}</p>
             </ion-label>
           </ion-item>
 
           <!-- Fuel Type -->
-          <ion-item>
+          <ion-item class="ion-no-padding ion-margin-bottom">
             <ion-icon name="flame-outline" slot="start" color="primary"></ion-icon>
             <ion-label>
-              <h3>Fuel Type</h3>
-              <p class="detail-value">{{ car.fuel }}</p>
+              <h3 class="ion-no-margin">Fuel Type</h3>
+              <p class="detail-value ion-no-margin ion-margin-top">{{ car.fuel }}</p>
             </ion-label>
           </ion-item>
 
           <!-- Mileage -->
-          <ion-item>
+          <ion-item class="ion-no-padding ion-margin-bottom">
             <ion-icon name="speedometer-outline" slot="start" color="primary"></ion-icon>
             <ion-label>
-              <h3>Mileage</h3>
-              <p class="detail-value">{{ formatKm(car.km) }}</p>
+              <h3 class="ion-no-margin">Mileage</h3>
+              <p class="detail-value ion-no-margin ion-margin-top">{{ formatKm(car.km) }}</p>
             </ion-label>
           </ion-item>
 
           <!-- Location -->
-          <ion-item>
+          <ion-item class="ion-no-padding">
             <ion-icon name="location-outline" slot="start" color="primary"></ion-icon>
             <ion-label>
-              <h3>Location</h3>
-              <p class="detail-value">{{ car.city }}</p>
+              <h3 class="ion-no-margin">Location</h3>
+              <p class="detail-value ion-no-margin ion-margin-top">{{ car.city }}</p>
             </ion-label>
           </ion-item>
         </ion-list>
@@ -86,7 +86,8 @@
       <ion-button 
         expand="block" 
         size="large"
-        data-testid="contact-seller-button">
+        data-testid="contact-seller-button"
+        class="ion-margin-bottom">
         <ion-icon name="cash-outline" slot="start"></ion-icon>
         Contact Seller
       </ion-button>
