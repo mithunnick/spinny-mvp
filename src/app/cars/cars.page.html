@@ -22,7 +22,8 @@
         sizeMd="4" 
         sizeLg="3"
         *ngFor="let car of cars"
-        data-testid="car-card-col">
+        data-testid="car-card-col"
+        class="ion-padding-bottom">
         <ion-card 
           class="car-card" 
           (click)="navigateToDetail(car.id)"
@@ -41,24 +42,24 @@
 
           <!-- Car Details -->
           <ion-card-header>
-            <ion-card-title class="car-title">
+            <ion-card-title class="car-title ion-no-margin">
               {{ car.brand }} {{ car.model }}
             </ion-card-title>
-            <ion-card-subtitle class="car-year">{{ car.year }}</ion-card-subtitle>
+            <ion-card-subtitle class="car-year ion-margin-top">{{ car.year }}</ion-card-subtitle>
           </ion-card-header>
 
-          <ion-card-content>
+          <ion-card-content class="ion-padding">
             <div class="car-info">
               <div class="info-item">
                 <span class="info-label">Mileage:</span>
                 <span class="info-value">{{ formatKm(car.km) }}</span>
               </div>
-              <div class="info-item">
+              <div class="info-item ion-margin-top">
                 <span class="info-label">Location:</span>
                 <span class="info-value">{{ car.city }}</span>
               </div>
             </div>
-            <div class="price-container">
+            <div class="price-container ion-margin-top">
               <span class="price">{{ formatPrice(car.price) }}</span>
             </div>
           </ion-card-content>
@@ -68,10 +69,10 @@
   </ion-grid>
 
   <!-- Empty State -->
-  <div class="empty-state" *ngIf="cars.length === 0">
+  <div class="empty-state ion-text-center ion-padding" *ngIf="cars.length === 0">
     <ion-text color="medium">
-      <h2>No Cars Available</h2>
-      <p>There are currently no approved cars for sale. Check back later!</p>
+      <h2 class="ion-no-margin">No Cars Available</h2>
+      <p class="ion-margin-top">There are currently no approved cars for sale. Check back later!</p>
     </ion-text>
   </div>
 </ion-content>
