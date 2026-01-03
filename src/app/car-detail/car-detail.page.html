@@ -103,12 +103,12 @@
   </div>
 
   <!-- Car Not Found -->
-  <div *ngIf="!car" class="not-found-section ion-padding">
+  <div *ngIf="!car" class="not-found-section ion-padding ion-text-center">
     <ion-text color="medium">
-      <h2>Car Not Found</h2>
-      <p>The car you're looking for doesn't exist or has been removed.</p>
+      <h2 class="ion-no-margin">Car Not Found</h2>
+      <p class="ion-margin-top">The car you're looking for doesn't exist or has been removed.</p>
     </ion-text>
-    <ion-button expand="block" (click)="goBack()">
+    <ion-button expand="block" (click)="goBack()" class="ion-margin-top">
       Back to Listings
     </ion-button>
   </div>
